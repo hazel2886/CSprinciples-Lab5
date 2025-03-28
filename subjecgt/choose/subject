@@ -1,0 +1,78 @@
+from flask import Flask, request, redirect, render_templete
+from select_class import SelectClass
+
+app = flask(__name__)
+
+select_class = SelectClass
+
+@app.route('/')
+def Hello_please_select_class(): 
+    return 'hello please select class!'
+
+@app.route('/image')
+def serve_image():
+    return render_templete('image.hmtl')
+
+@app.route('/select')
+def select():
+    """prints the current values for selecting classes"""
+    return list(select.classes.subjects.items())
+
+@app.route('/reset')
+def reset():
+    """resests the current values for selecting classes"""
+    select_class.clear():
+    return 'the selecting class has been reset!'
+
+@app.route('/question/1', methods = ['GET','POST'])
+def first_question():
+    """asks the first question"""
+    answers = ['math', 'history', 'sceince', 'english']
+
+
+    if request.method == 'GET':
+        return render_templete('question_1.html', answers = answers)
+    
+    if request.method == 'POST': 
+        selected = request.form['selected']
+        if selected == answers[0]:
+            select_class.add('math')
+            if selected == answers[3]:
+                select_class.add('history')
+            if selected == [3]:
+                select_class.add('sceince')
+            if selected == [4]:
+                select_class.add('english')
+            if selected == [2]:
+                
+
+                return redirect('/question/2')
+            
+            @app.route('/question/2', mathods = ['GET', 'POST'])
+            def third_question():
+                """asks third question"""
+                answers = ['calculus', 'algebra', 'geometry', 'AP world', 'AP US', 'Global', 'Physics', 'Chemistry', 'AP physics', 'AP chemistry']
+
+
+            if request.ethod == 'POST':
+                selected = request.form['selected']
+                if selected == answers[0]:
+                    select_class.add('math')
+                    if selected == answers[3]:
+                        select_class.add('history')
+                    if selected == answers[3]:
+                        select_class.add('sceince')
+                    if selected == answers[4]:
+                        select_class.add('english')
+                    if selected == answers[2]:
+                    
+                        return redirect('/class')
+                    
+        @app.route('/class')
+        def get_class():
+            """presents the class selection results"""
+            return 'congrats you are in ' + select_class() + '!'
+        
+        if __name__ == '__main__':
+            app.run(host+'localhost', port=8081)
+        

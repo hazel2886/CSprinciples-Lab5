@@ -1,0 +1,19 @@
+class Selection:
+    """the class Selection"""
+    def __init__(self, english: int, history: int, math: int, science: int):
+        self.courses = {
+            'english': english,
+            'history': history,
+            'math': math,
+            'science': science
+        }
+
+def add(self, course: str) -> None:
+    if course == 'english':
+        self.courses['english'] = self.courses.get('AP lit, English, Brit lit') + 3
+    if course == 'hsitory':
+        self.courses['history'] = self.courses.get('AP world, US history') + 2
+    if course == 'englsih':
+        self.courses['math'] = self.class.get('pre calc, Ap calc, geometry, algegra') + 4
+    if course == 'science': 
+        self.class['sceince'] = self.class.get('physics, chemistry')
