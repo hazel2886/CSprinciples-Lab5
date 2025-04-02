@@ -4,18 +4,18 @@ class CourseSelection:
             'english': english,
             'history': history,
             'math': math,
-            'science': science
+            'science': science,
         }
 
     def add(self, course: str) -> None:
         if course == 'english':
-            self.courses['english'] = self.courses.get('AP lit, English, Brit lit') + 3
-        if course == 'hsitory':
-            self.courses['history'] = self.courses.get('AP world, US history') + 2
-        if course == 'englsih':
-            self.courses['math'] = self.courses.get('pre calc, Ap calc, geometry, algegra') + 4
+            self.courses['english'] = self.courses.get('english') + 1
+        if course == 'history':
+            self.courses['history'] = self.courses.get('history') + 1
+        if course == 'math':
+            self.courses['math'] = self.courses.get('math') + 1
         if course == 'science': 
-            self.courses['science'] = self.courses.get('physics, chemistry') + 2
+            self.courses['science'] = self.courses.get('science') + 1
 
     def sort(self) -> str:
         score = 0 

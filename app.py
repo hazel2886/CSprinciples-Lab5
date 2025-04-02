@@ -44,7 +44,7 @@ def first_question():
             
 @app.route('/question/2', methods = ['GET', 'POST'])
 def second_question():
-    answers = ['calculus', 'algebra', 'geometry', 'AP world', 'AP US', 'Global', 'Physics', 'Chemistry', 'AP physics', 'AP chemistry']
+    answers = ['calculus', 'AP physics', 'AP World', 'AP Lit']
 
     if request.method == 'GET':
         return render_template('question_2.html', answers = answers)
@@ -53,18 +53,46 @@ def second_question():
         selected = request.form['selected']
         if selected == answers[0]:
             courses.add('math')
+        if selected == answers[1]:
+            courses.add('history')
+        if selected == answers[2]:
+            courses.add('sceince')
         if selected == answers[3]:
-            select_course.add('history')
+            courses.add('english')
+                    
+        return redirect('/question/3')
+    
+
+@app.route('/question/3', methods = ['GET', 'POST'])
+def third_question():
+    answers = ['AP Psycology', 'AP Computer Science', 'St. John\'s Math', 'Creative Writing']
+
+    if request.method == 'GET':
+        return render_template('question_3.html', answers = answers)
+    
+    if request.method == 'POST':
+        selected = request.form['selected']
+        if selected == answers[0]:
+            courses.add('math')
+        if selected == answers[1]:
+            courses.add('history')
+        if selected == answers[2]:
+            courses.add('science')
         if selected == answers[3]:
-            select_course.add('sceince')
-        if selected == answers[4]:
-            select_course.add('english')
-                    
-        return redirect('/class')
-                    
-@app.route('/course')
-def select_course():
-    return 'congrats you are in ' + select_course() + '!'
+            courses.add('english')
+        
+        return redirect('/result')
+    
+@app.route('/question/4', methods = ['GET', 'POST'])
+def fourth_question():
+    answers = ['Model UN', 'forensics', 'robotics', 'Journalism']
+
+    if request.method == 'GET':
+        return render_template('question_4.html', answers = answers)
+
+@app.route('/result')
+def result():
+    return 'enjoy! ' + courses.sort() + '!'
         
 if __name__ == '__main__':
     app.run()
