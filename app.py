@@ -81,7 +81,7 @@ def third_question():
         if selected == answers[3]:
             courses.add('english')
         
-        return redirect('/result')
+        return redirect('/question/4')
     
 @app.route('/question/4', methods = ['GET', 'POST'])
 def fourth_question():
@@ -89,10 +89,23 @@ def fourth_question():
 
     if request.method == 'GET':
         return render_template('question_4.html', answers = answers)
-
+    
+    if request.method == 'POST':
+        selected = request.form['selected']
+        if selected == answers[0]:
+            courses.add('math')
+        if selected == answers[1]:
+            courses.add('history')
+        if selected == answers[2]:
+            courses.add('science')
+        if selected == answers[3]:
+            courses.add('english')
+        
+        return redirect('/result')
+    
 @app.route('/result')
 def result():
-    return 'enjoy! ' + courses.sort() + '!'
+    return 'enjoy courses of ' + courses.sort() + '!'
         
 if __name__ == '__main__':
     app.run()
