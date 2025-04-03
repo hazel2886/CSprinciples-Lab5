@@ -101,6 +101,26 @@ def fourth_question():
         if selected == answers[3]:
             courses.add('english')
         
+        return redirect('/question/5')
+    
+@app.route('/question/5', methods = ['GET', 'POST'])
+def fifth_question():
+    answers = ['boxing', 'CPR training class', 'football', 'soccer']
+
+    if request.method == 'GET':
+        return render_template('question_5.html', answers = answers)
+
+    if request.method == 'POST':
+        selected = request.form['selected']
+        if selected == answers[0]:
+            courses.add('math')
+        if selected == answers[1]:
+            courses.add('history')
+        if selected == answers[2]:
+            courses.add('science')
+        if selected == answers[3]:
+            courses.add('english')
+        
         return redirect('/result')
     
 @app.route('/result')
