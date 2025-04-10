@@ -11,11 +11,11 @@ class CourseSelection:
         if course == 'english':
             self.courses['english'] = self.courses.get('english') + 1
         if course == 'history':
-            self.courses['history'] = self.courses.get('history') + 1
+            self.courses['history'] = self.courses.get('history') + 3
         if course == 'math':
             self.courses['math'] = self.courses.get('math') + 1
         if course == 'science': 
-            self.courses['science'] = self.courses.get('science') + 1
+            self.courses['science'] = self.courses.get('science') + 2
 
     def sort(self) -> str:
         score = 0 

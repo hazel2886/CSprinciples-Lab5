@@ -1,7 +1,7 @@
 <form class="form-inline" method="POST" action="{{ url_for('first_question') }}">
     <div class="form-group">
       <div class="input-group">
-          <span class="input-group-addon">If you must attend this school, what classes do you... insist on taking?</span>
+          <span class="input-group-addon">'Please select a course you would like to start with for the year.'</span>
               <select name="selected" class="selectpicker form-control">
                 {% for answer in answers %}
                 <option value="{{answer}}">{{answer}}</option>

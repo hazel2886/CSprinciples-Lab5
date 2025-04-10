@@ -7,7 +7,7 @@ courses = CourseSelection(0, 0, 0, 0)
 
 @app.route('/')
 def hello_please_select_course(): 
-    return 'hello please select course!'
+    return 'Congrats! You have made it to High School. Please create a schedule for school. (Remeber that each course you choose is assoiated with a different subject. As well as having a certain amount of points assosiated with it. No going back once you have chosen the courses in which you will take for the next year.) Choose wisely. Good Luck.!'
 
 @app.route('/image')
 def serve_image():
@@ -125,7 +125,7 @@ def fifth_question():
     
 @app.route('/result')
 def result():
-    return 'enjoy courses of ' + courses.sort() + '!'
+    return 'Based on the coures you have selected your main course will be.... ' + courses.sort() + '!'
         
 if __name__ == '__main__':
     app.run()
